@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 14:28:27 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/24 20:11:46 by ksiren           ###   ########.fr       */
+/*   Updated: 2020/11/25 17:27:12 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,16 +86,4 @@ char			**ft_split(char const *s, char c)
 	}
 	zhir[j] = NULL;
 	return (zhir);
-}
-
-int main()
-{
-	char c;
-	char **new;
-	c = '\0';
-	new = ft_split("", '\0');
-	int i = 0;
-	while (new[i])
-		printf("%s\n", new[i++]);
-	return (0);
 }
