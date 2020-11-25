@@ -6,7 +6,7 @@
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/15 19:14:33 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:27:35 by ksiren           ###   ########.fr       */
+/*   Updated: 2020/11/25 17:29:37 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	start;
 	size_t	end;
+
 	if (!s1)
 		return (0);
 	start = 0;
