@@ -49,11 +49,3 @@ char		*ft_substr(char const *s, unsigned int start, size_t len)
 	dest[i] = '\0';
 	return (dest);
 }
-#include <stdio.h>
-int main()
-{
-	char *new;
-	new = ft_substr("12345678", 60, 120);
-		printf("%s\n", new);
-	return (0);
-}
