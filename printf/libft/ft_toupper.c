@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 18:13:16 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:49:53 by ksiren           ###   ########.fr       */
+/*   Created: 2020/10/29 16:30:28 by ksiren            #+#    #+#             */
+/*   Updated: 2020/11/18 17:46:59 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_toupper(int c)
 {
-	size_t			len;
-
-	len = 0;
-	if (n == 0)
-		return (0);
-	while (len < n - 1 && s1[len] != '\0' && s2[len] == s1[len])
-		len++;
-	return ((unsigned char)s1[len] - (unsigned char)s2[len]);
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
 }

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 18:13:16 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:49:53 by ksiren           ###   ########.fr       */
+/*   Created: 2020/11/12 17:33:28 by ksiren            #+#    #+#             */
+/*   Updated: 2020/11/18 17:45:45 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	size_t			len;
+	unsigned char	*ch1;
+	unsigned char	*ch2;
+	size_t			i;
 
-	len = 0;
-	if (n == 0)
-		return (0);
-	while (len < n - 1 && s1[len] != '\0' && s2[len] == s1[len])
-		len++;
-	return ((unsigned char)s1[len] - (unsigned char)s2[len]);
+	ch1 = (unsigned char *)src;
+	ch2 = (unsigned char *)dst;
+	i = 0;
+	while (i < n)
+	{
+		if (ch1[i] == (unsigned char)c)
+		{
+			ch2[i] = ch1[i];
+			i++;
+			return ((void *)(ch2 + i));
+		}
+		ch2[i] = ch1[i];
+		i++;
+	}
+	return (NULL);
 }

@@ -1,25 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 18:13:16 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:49:53 by ksiren           ###   ########.fr       */
+/*   Created: 2021/01/20 11:48:06 by ksiren            #+#    #+#             */
+/*   Updated: 2021/01/22 17:03:40 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+# include "libft/libft.h"
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdio.h>
+
+typedef struct	s_fmt
 {
-	size_t			len;
+	char	*str;
+	char	spec;
+	int		nils;
+	int		precision;
+	int		width;
+}				t_fmt;
 
-	len = 0;
-	if (n == 0)
-		return (0);
-	while (len < n - 1 && s1[len] != '\0' && s2[len] == s1[len])
-		len++;
-	return ((unsigned char)s1[len] - (unsigned char)s2[len]);
-}
+
+
+# define BASE_DEC "0123456789"
+# define BASE_HEX_LOW "0123456789abcdef"
+# define BASE_HEX_HIGH "0123456789ABCDEF"
+
+#endif

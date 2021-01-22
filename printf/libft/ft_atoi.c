@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 18:13:16 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:49:53 by ksiren           ###   ########.fr       */
+/*   Created: 2020/10/29 21:48:50 by ksiren            #+#    #+#             */
+/*   Updated: 2020/11/18 17:45:02 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t			len;
+	int	ret;
+	int	pusmus;
 
-	len = 0;
-	if (n == 0)
-		return (0);
-	while (len < n - 1 && s1[len] != '\0' && s2[len] == s1[len])
-		len++;
-	return ((unsigned char)s1[len] - (unsigned char)s2[len]);
+	pusmus = 1;
+	ret = 0;
+	while (*str && (*str == ' ' || *str == '\n' || *str == '\t' ||
+			*str == '\v' || *str == '\f' || *str == '\r'))
+		++str;
+	if (*str == '-')
+		pusmus = -1;
+	if (*str == '-' || *str == '+')
+		++str;
+	while (*str && *str >= '0' && *str <= '9')
+	{
+		ret = ret * 10 + (*str - 48);
+		++str;
+	}
+	return (ret * pusmus);
 }

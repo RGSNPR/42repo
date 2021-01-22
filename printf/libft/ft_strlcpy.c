@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 18:13:16 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:49:53 by ksiren           ###   ########.fr       */
+/*   Created: 2020/10/31 16:53:36 by ksiren            #+#    #+#             */
+/*   Updated: 2020/11/18 17:46:31 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t			len;
+	size_t num;
+	size_t len;
 
+	num = 0;
 	len = 0;
-	if (n == 0)
-		return (0);
-	while (len < n - 1 && s1[len] != '\0' && s2[len] == s1[len])
+	while (src[len] != '\0')
 		len++;
-	return ((unsigned char)s1[len] - (unsigned char)s2[len]);
+	if (dstsize == 0)
+		return (len);
+	while (num < (dstsize - 1) && src[num] != '\0')
+	{
+		dst[num] = src[num];
+		num++;
+	}
+	dst[num] = '\0';
+	return (len);
 }

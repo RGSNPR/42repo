@@ -1,25 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 18:13:16 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:49:53 by ksiren           ###   ########.fr       */
+/*   Created: 2020/11/15 19:07:01 by ksiren            #+#    #+#             */
+/*   Updated: 2020/11/20 22:20:05 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	size_t			len;
+	char	*res;
+	int		i;
+	int		j;
 
-	len = 0;
-	if (n == 0)
-		return (0);
-	while (len < n - 1 && s1[len] != '\0' && s2[len] == s1[len])
-		len++;
-	return ((unsigned char)s1[len] - (unsigned char)s2[len]);
+	if (!s1 || !s2)
+		return (NULL);
+	res = NULL;
+	res = (char *)malloc((ft_strlen(s1) + ft_strlen(s2)) * sizeof(char));
+	if (res == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+	{
+		res[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+	{
+		res[i] = s2[j];
+		i++;
+		j++;
+	}
+	res[i] = '\0';
+	return (res);
 }

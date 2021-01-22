@@ -1,25 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 18:13:16 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:49:53 by ksiren           ###   ########.fr       */
+/*   Created: 2020/10/30 22:15:55 by ksiren            #+#    #+#             */
+/*   Updated: 2020/11/18 17:46:05 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t			len;
+	unsigned char	*ch1;
+	unsigned char	*ch2;
 
-	len = 0;
-	if (n == 0)
-		return (0);
-	while (len < n - 1 && s1[len] != '\0' && s2[len] == s1[len])
-		len++;
-	return ((unsigned char)s1[len] - (unsigned char)s2[len]);
+	ch1 = (unsigned char *)src;
+	ch2 = (unsigned char *)dst;
+	if (src == dst)
+		return (ch2);
+	if (dst <= src || dst >= (src + len))
+	{
+		while (len-- > 0)
+			*ch2++ = *ch1++;
+	}
+	else
+	{
+		ch2 += len - 1;
+		ch1 += len - 1;
+		while (len > 0)
+		{
+			*ch2-- = *ch1--;
+			len--;
+		}
+	}
+	return (dst);
 }

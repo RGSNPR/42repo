@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ksiren <ksiren@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/12 18:13:16 by ksiren            #+#    #+#             */
-/*   Updated: 2020/11/25 17:49:53 by ksiren           ###   ########.fr       */
+/*   Created: 2020/11/25 19:00:23 by ksiren            #+#    #+#             */
+/*   Updated: 2020/11/29 15:39:36 by ksiren           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-	size_t			len;
+# include <stdlib.h>
+# include <unistd.h>
 
-	len = 0;
-	if (n == 0)
-		return (0);
-	while (len < n - 1 && s1[len] != '\0' && s2[len] == s1[len])
-		len++;
-	return ((unsigned char)s1[len] - (unsigned char)s2[len]);
-}
+int		get_next_line(int fd, char **line);
+char	*ft_newstr(char *s);
+int		ft_parse_es(char *s);
+int		ft_strlen(const char *s);
+char	*ft_strjoin_mod(char *s1, char *s2);
+char	*ft_cutost(char *s);
+
+#endif
+
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE -1
+
+#endif
